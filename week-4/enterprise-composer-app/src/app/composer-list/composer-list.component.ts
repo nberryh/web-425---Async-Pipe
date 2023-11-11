@@ -9,6 +9,7 @@ import { IComposer } from '../composer.interface';
 import { ComposerService } from '../composer.service';
 import { FormControl } from '@angular/forms';
 import { debounceTime} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 // Creates and export the composer-list
 @Component({
@@ -21,7 +22,7 @@ import { debounceTime} from 'rxjs/operators';
 export class ComposerListComponent implements OnInit {
 
   //Interface from IComposer
-  composers: Array<IComposer>;
+  composers: Observable<IComposer[]>;
   txtSearchControl = new FormControl('');
 
   // Create constructor for composers
@@ -35,6 +36,6 @@ export class ComposerListComponent implements OnInit {
   }
 
   filterComposers(name: string) {
-    alert(name);
+    this.composers = this.composerService.filterComposers(name);
   }
 }

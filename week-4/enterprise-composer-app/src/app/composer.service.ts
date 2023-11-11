@@ -1,11 +1,13 @@
 // Name: Nolan Berryhill
 // File: composer.service.ts
-// Description: TypeScript for the composer aervice
+// Description: TypeScript for the composer service
 // Date: 11/12/2023
 
 // Import Injectable and IComposer
 import { Injectable } from '@angular/core';
 import { IComposer } from './composer.interface';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 // Create the injectable of the class
 @Injectable({
@@ -37,8 +39,8 @@ export class ComposerService {
   }
 
   // Create getComposers for return
-  getComposers() {
-    return this.composers;
+  getComposers(): Observable<IComposer[]> {
+    return of(this.composers);
   }
 
   // Gives limits for getComposers
@@ -48,5 +50,9 @@ export class ComposerService {
         return composer;
       }
     }
+  }
+
+  filterComposers(name: string): Observable<IComposer[]> {
+    return of(this.composers).pipe(map(composers => composers.filter(composer => composer.fullName.toLowerCase().indexOf(name) > -1)));
   }
 }
