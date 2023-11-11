@@ -1,0 +1,12 @@
+/**
+    Title: composer-list.component.css
+    Author: Nolan Berryhill
+    Date: 12 November 2023
+    Description: CSS file for composer-list
+*/
+
+.textSearch {
+  width: 30%;
+  float: right;
+  margin-bottom: 5px;
+}

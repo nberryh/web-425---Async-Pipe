@@ -1,0 +1,45 @@
+<!-- Name: Nolan Berryhill
+File: composer-list.component.html
+Description: HTML file for the composer list component
+Date: 11/12/2023-->
+
+<!-- Create Table -->
+<div class="container">
+
+  <div class="row">
+    <h2>Composer List</h2>
+    <br /><br />
+    <!-- Create Table -->
+    <div class="col-sm-12">
+      <!-- Search Text input area -->
+      <div class="textSearch">
+        <input type="text" id="txtSearch" class="form-control" placeholder="Search by name" [formControl]="txtSearchControl" />
+      </div>
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <!-- Titles of columns -->
+          <tr>
+            <th scope="col">Composer ID</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Genre</th>
+          </tr>
+        </thead>
+        <!-- Body of the table -->
+        <tbody>
+          <tr *ngFor="let composer of composers">
+            <!-- Link to composer details -->
+            <td scope="row">
+              <a routerLink="/composer-details/{{ composer.composerId }}">
+                {{ composer.composerId }}
+              </a>
+            </td>
+            <!-- Name of composer -->
+            <td scope="row">{{ composer.fullName }}</td>
+            <!-- Genre of Composer -->
+            <td>{{ composer.genre }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<!-- Name: Nolan Berryhill
+File: composer-details.component.html
+Description: HTML file for the about component details
+Date: 11/05/2023-->
+
+<!-- Body for the composer details -->
+<div class="row">
+
+  <!-- Details of the selected composer -->
+  <div class="col-sm-12">
+    <ul class="list-group">
+      <li class="list-group-item">Composer ID: {{ composer.composerId }}</li>
+      <li class="list-group-item">Full name: {{ composer.fullName }}</li>
+      <li class="list-group-item">Genre: {{ composer.genre }}</li>
+    </ul>
+    <!-- Break -->
+    <br />
+    <!-- Return to Composer list -->
+    <a routerLink="/composer-list" class="float-right">Return to Composers</a>
+  </div>
+</div>
