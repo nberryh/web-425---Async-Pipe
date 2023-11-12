@@ -43,6 +43,11 @@ export class ComposerService {
     return of(this.composers);
   }
 
+  // Filter Composers
+  filterComposers(name: string): Observable<IComposer[]> {
+    return of(this.composers).pipe(map(composers => composers.filter(composer => composer.fullName.toLowerCase().indexOf(name) > -1)));
+  }
+
   // Gives limits for getComposers
   getComposer(composerId: number) {
     for (let composer of this.composers) {
@@ -52,7 +57,5 @@ export class ComposerService {
     }
   }
 
-  filterComposers(name: string): Observable<IComposer[]> {
-    return of(this.composers).pipe(map(composers => composers.filter(composer => composer.fullName.toLowerCase().indexOf(name) > -1)));
-  }
+
 }
