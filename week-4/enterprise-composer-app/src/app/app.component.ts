@@ -15,5 +15,6 @@ import { Component } from '@angular/core';
 
 // export AppComponent
 export class AppComponent {
+  title = 'berryhill-composer-app';
   assignment: string = 'Exercise 4.4 - Async Pipe';
 }
